@@ -1,0 +1,67 @@
+/* ============================================================
+   Print / PDF export
+   Each slide becomes exactly one landscape 16:9 page
+   (1280px × 720px = 13.33in × 7.5in at 96dpi).
+   Invoke with Ctrl/Cmd+P or the printer button → Save as PDF.
+   ============================================================ */
+
+@media print {
+  @page {
+    size: 1280px 720px; /* landscape 16:9, zero margins */
+    margin: 0;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  html,
+  body {
+    width: 1280px;
+    height: auto;
+    overflow: visible;
+    background: var(--c-bg);
+  }
+
+  .deck {
+    position: static;
+    display: block;
+    width: 1280px;
+    height: auto;
+    overflow: visible;
+  }
+
+  .deck__stage {
+    width: 1280px;
+    height: auto;
+    transform: none !important;
+    box-shadow: none;
+  }
+
+  .slide {
+    position: relative;
+    inset: auto;
+    width: 1280px !important;
+    height: 720px !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    page-break-after: always;
+    break-after: page;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  .slide [data-anim] {
+    opacity: 1 !important;
+    animation: none !important;
+  }
+
+  /* chrome removed from print output */
+  .no-print {
+    display: none !important;
+  }
+}

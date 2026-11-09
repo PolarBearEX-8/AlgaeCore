@@ -1,0 +1,50 @@
+:root {
+  --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-display: 'Space Grotesk', 'Inter', system-ui, sans-serif;
+
+  --c-bg: #0b1110;
+  --c-forest: #1b4d38;
+  --c-forest-deep: #12362a;
+  --c-mint: #a7e8c7;
+  --c-mint-bright: #cff3df;
+  --c-off: #f4f2ea;
+  --c-ink: #141a16;
+
+  --hair-d: rgba(244, 242, 234, 0.14);
+  --hair-l: rgba(20, 26, 22, 0.14);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--c-bg);
+  color: var(--c-off);
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+}
+
+::selection {
+  background: var(--c-mint);
+  color: var(--c-ink);
+}
+
+button {
+  font: inherit;
+  color: inherit;
+}

@@ -10,6 +10,23 @@ npm install
 npm run dev
 ```
 
+## Open as a 16:9 app window
+
+Double-click **`open-16x9.cmd`** (Windows), or run:
+
+```bash
+npm start
+```
+
+This starts the dev server if it is not already running and opens the deck in a
+Chrome/Edge **app window** (no tabs or address bar) whose content area is exactly
+**1280 × 720 (16:9)** — so there are no letterbox bars. The window is centered on
+screen; on smaller displays it scales down while keeping the 16:9 ratio.
+
+- `npm start` / `npm run open:16x9` — launch the 16:9 window
+- `npm run dev` — normal browser tab (letterboxed on non-16:9 windows)
+- Set `CHROME_PATH` to use a specific Chrome/Edge executable
+
 ## PDF export
 
 - Press **Ctrl/Cmd + P**, or use the printer button, then choose **Save as PDF**.

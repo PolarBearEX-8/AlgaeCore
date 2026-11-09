@@ -785,7 +785,7 @@
 
 .slide-outline {
   position: absolute;
-  top: 26px;
+  top: 22px;
   left: 76px;
   right: 76px;
   z-index: 6;
@@ -797,31 +797,36 @@
 .slide-outline__item {
   display: inline-flex;
   align-items: center;
-  padding: 7px 17px;
+  padding: 8px 18px;
   border-radius: 999px;
-  font: 600 13.5px/1 var(--font-sans);
-  letter-spacing: 0.07em;
+  font: 600 14px/1 var(--font-sans);
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   white-space: nowrap;
-  background: rgba(244, 242, 234, 0.12);
+  background: rgba(244, 242, 234, 0.2);
+  border: 1px solid rgba(244, 242, 234, 0.18);
   color: var(--c-off);
-  transition: color 0.25s ease, background 0.25s ease;
+  transition: color 0.25s ease, background 0.25s ease, border-color 0.25s ease;
 }
 
 /* current topic: filled pill + bright label */
 .slide-outline__item.is-current {
   background: var(--c-mint);
+  border-color: var(--c-mint);
   color: var(--c-ink);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.16);
 }
 
 /* visited topics: fully lit */
 .slide-outline__item.is-seen {
-  color: rgba(244, 242, 234, 0.85);
+  color: rgba(244, 242, 234, 0.92);
+  border-color: rgba(244, 242, 234, 0.24);
 }
 
-/* not visited yet: greyed out */
+/* not visited yet: still readable, just quieter */
 .slide-outline__item.is-unseen {
-  color: rgba(244, 242, 234, 0.34);
+  color: rgba(244, 242, 234, 0.62);
+  border-color: rgba(244, 242, 234, 0.1);
 }
 
 /* connectors: flexible hairlines that stretch between pills */
@@ -829,26 +834,30 @@
   flex: 1;
   min-width: 14px;
   height: 1px;
-  background: rgba(244, 242, 234, 0.22);
+  background: rgba(244, 242, 234, 0.36);
 }
 
 /* light slides reuse the ink palette */
 .slide--light .slide-outline__item {
-  color: var(--c-ink);
-  background: rgba(20, 26, 22, 0.1);
+  color: rgba(20, 26, 22, 0.82);
+  background: rgba(20, 26, 22, 0.07);
+  border-color: rgba(20, 26, 22, 0.16);
 }
 .slide--light .slide-outline__item.is-current {
   background: var(--c-forest);
+  border-color: var(--c-forest);
   color: var(--c-off);
 }
 .slide--light .slide-outline__item.is-seen {
-  color: rgba(20, 26, 22, 0.85);
+  color: rgba(20, 26, 22, 0.9);
+  border-color: rgba(20, 26, 22, 0.22);
 }
 .slide--light .slide-outline__item.is-unseen {
-  color: rgba(20, 26, 22, 0.32);
+  color: rgba(20, 26, 22, 0.62);
+  border-color: rgba(20, 26, 22, 0.09);
 }
 .slide--light .slide-outline__link {
-  background: rgba(20, 26, 22, 0.2);
+  background: rgba(20, 26, 22, 0.32);
 }
 
 .ctl:focus-visible,

@@ -4,6 +4,7 @@ import Slide02 from './slides/Slide02'
 import Slide03 from './slides/Slide03'
 import Slide04 from './slides/Slide04'
 import Slide05 from './slides/Slide05'
+import Slide06 from './slides/Slide06'
 import type { SlideDef } from './types'
 
 const slides: SlideDef[] = [
@@ -12,6 +13,7 @@ const slides: SlideDef[] = [
   { id: 'environment', tone: 'dark', label: 'Environment', element: <Slide03 /> },
   { id: 'balance', tone: 'light', label: 'Benefits & Limits', element: <Slide04 /> },
   { id: 'example', tone: 'dark', label: 'Real-life example', element: <Slide05 /> },
+  { id: 'team', tone: 'light', label: 'Members', element: <Slide06 /> },
 ]
 
 export default function App() {

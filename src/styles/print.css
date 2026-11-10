@@ -61,7 +61,8 @@
   }
 
   /* chrome removed from print output */
-  .no-print {
+  .no-print,
+  .slide-outline {
     display: none !important;
   }
 }

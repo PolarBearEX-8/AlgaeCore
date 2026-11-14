@@ -60,9 +60,8 @@
     animation: none !important;
   }
 
-  /* chrome removed from print output */
-  .no-print,
-  .slide-outline {
+  /* Interactive presentation controls are removed from print output. */
+  .no-print {
     display: none !important;
   }
 }

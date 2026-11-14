@@ -12,7 +12,7 @@ export default function SlideOutline({ current, visited, labels }: {
   labels: string[]
 }) {
   return (
-    <div className="slide-outline no-print">
+    <div className="slide-outline">
       {labels.map((label, i) => (
         <Fragment key={label}>
           {i > 0 && <i className="slide-outline__link" />}

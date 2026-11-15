@@ -2,34 +2,24 @@ import { d, SlideHeader } from '../components/ui'
 
 /**
  * Team members shown on the final slide.
- * Edit the entries below to change names, roles and descriptions.
+ * Edit the entries below to change the team members.
  * Initials are derived automatically from each name.
  */
 const MEMBERS = [
   {
-    name: 'Alex Morgan',
-    role: 'Research & Content',
-    text: 'Algae biology, CO₂ absorption data and sources.',
+    name: 'Tasaphoom Jarattrakul',
   },
   {
-    name: 'Sam Rivera',
-    role: 'Design & Visuals',
-    text: 'Slide design, layout and photo selection.',
+    name: 'Witchyut Sangjansiri',
   },
   {
-    name: 'Jordan Lee',
-    role: 'Technology & Cases',
-    text: 'Panel technology and the BIQ House case study.',
+    name: 'Aniwut Mekwimanrat',
   },
   {
-    name: 'Taylor Brooks',
-    role: 'Data & Analysis',
-    text: 'Performance figures, comparisons and charts.',
+    name: 'Amnart Promdee',
   },
   {
-    name: 'Casey Nguyen',
-    role: 'Presentation & Q&A',
-    text: 'Narration, delivery and discussion.',
+    name: 'Auttakorn Mongkonkee',
   },
 ]
 
@@ -54,8 +44,6 @@ export default function Slide06() {
             </span>
             <div className="s6__info">
               <h3 className="s6__name">{member.name}</h3>
-              <p className="s6__role">{member.role}</p>
-              <p className="s6__text">{member.text}</p>
             </div>
           </article>
         ))}

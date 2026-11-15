@@ -5,14 +5,73 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="AlgaeCore — Living Carbon Filter. Turning buildings into living carbon filters. An academic presentation for Technology & Environment." />
     <meta name="theme-color" content="#0B1110" />
+    <base href="https://polarbearex-8.github.io/AlgaeCore/" />
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230B1110'/%3E%3Cpath d='M9 23C9 14 14 9.5 23 9c-.4 9-4.5 14-12 14z' fill='none' stroke='%23A7E8C7' stroke-width='1.6'/%3E%3Cpath d='M9 23c2.5-4 5-6.5 8.5-8' fill='none' stroke='%23A7E8C7' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E" />
     <title>AlgaeCore — Living Carbon Filter</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script type="module" crossorigin src="/AlgaeCore/assets/index-CCJ3FRmF.js"></script>
+    <link rel="stylesheet" crossorigin href="/AlgaeCore/assets/index-NjJXZ4k-.css">
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+
+    <script>
+      const replacements = [
+        { oldInitials: 'AM', newInitials: 'TJ', oldName: 'Alex Morgan', newName: 'Tasaphoom Jarattrakul' },
+        { oldInitials: 'SR', newInitials: 'WS', oldName: 'Sam Rivera', newName: 'Witchyut Sangjansiri' },
+        { oldInitials: 'JL', newInitials: 'AM', oldName: 'Jordan Lee', newName: 'Aniwut Mekwimanrat' },
+        { oldInitials: 'TB', newInitials: 'AP', oldName: 'Taylor Brooks', newName: 'Amnart Promdee' },
+        { oldInitials: 'CN', newInitials: 'AM', oldName: 'Casey Nguyen', newName: 'Auttakorn Mongkonkee' }
+      ];
+
+      function updateMembers() {
+        const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
+        let node;
+        const textNodes = [];
+        while ((node = walker.nextNode())) {
+          textNodes.push(node);
+        }
+
+        textNodes.forEach(tNode => {
+          const val = tNode.nodeValue.trim();
+          replacements.forEach(item => {
+            if (val === item.oldName || val === item.newName) {
+              if (val === item.oldName) {
+                tNode.nodeValue = item.newName;
+              }
+              
+              const nameEl = tNode.parentElement;
+              if (nameEl && nameEl.parentElement) {
+                // Hide all sibling elements under the name container (role label and description)
+                Array.from(nameEl.parentElement.children).forEach(sibling => {
+                  if (sibling !== nameEl) {
+                    sibling.style.display = 'none';
+                  }
+                });
+
+                // Find the specific card container holding both the avatar circle and the text block
+                const cardContainer = nameEl.parentElement.parentElement;
+                if (cardContainer) {
+                  cardContainer.querySelectorAll('*').forEach(el => {
+                    if (el.children.length === 0 && el !== nameEl) {
+                      const txt = el.textContent.trim();
+                      if (txt === item.oldInitials) {
+                        el.textContent = item.newInitials;
+                      }
+                    }
+                  });
+                }
+              }
+            }
+          });
+        });
+      }
+
+      const observer = new MutationObserver(() => updateMembers());
+      observer.observe(document.body, { childList: true, subtree: true });
+      setInterval(updateMembers, 300);
+    </script>
   </body>
 </html>

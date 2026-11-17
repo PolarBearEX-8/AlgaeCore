@@ -1,6 +1,5 @@
 /** Centralized navigation + 16:9 scaling + input handling. */
 import { useCallback, useEffect, useRef, useState } from 'react'
-import type { CSSProperties } from 'react'
 import type { SlideDef } from '../types'
 import Slide from './Slide'
 import ProgressIndicator from './ProgressIndicator'
@@ -20,7 +19,6 @@ export default function Presentation({ slides }: { slides: SlideDef[] }) {
   const viewportRef = useRef<HTMLDivElement>(null)
   const [scale, setScale] = useState(1)
   const [index, setIndex] = useState(0)
-  const [dir, setDir] = useState(1)
   const [isFullscreen, setIsFullscreen] = useState(false)
   /* Topics already shown in this session — the outline greys out the rest. */
   const [visited, setVisited] = useState<Set<number>>(() => new Set([0]))
@@ -67,22 +65,16 @@ export default function Presentation({ slides }: { slides: SlideDef[] }) {
   }, [])
 
   const next = useCallback(() => {
-    setDir(1)
     setIndex((i) => Math.min(i + 1, total - 1))
   }, [total])
 
   const prev = useCallback(() => {
-    setDir(-1)
     setIndex((i) => Math.max(i - 1, 0))
   }, [])
 
   const goTo = useCallback(
     (n: number) => {
-      setIndex((current) => {
-        const target = clampSlide(n, total)
-        setDir(target >= current ? 1 : -1)
-        return target
-      })
+      setIndex(clampSlide(n, total))
     },
     [total],
   )
@@ -126,7 +118,7 @@ export default function Presentation({ slides }: { slides: SlideDef[] }) {
   }, [next, prev, goTo, total, toggleFullscreen])
 
   return (
-    <div className="deck" ref={viewportRef} style={{ '--dir': dir } as CSSProperties}>
+    <div className="deck" ref={viewportRef}>
       <div className="deck__stage" style={{ transform: `scale(${scale})` }}>
         {slides.map((slide, i) => (
           <Slide

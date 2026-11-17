@@ -32,20 +32,15 @@
   overflow: hidden;
   opacity: 0;
   visibility: hidden;
-  transform: translateX(calc(var(--dir, 1) * 2.8%)) scale(0.99);
   transition:
-    opacity 0.55s ease,
-    transform 0.65s cubic-bezier(0.22, 0.61, 0.36, 1),
-    visibility 0s 0.7s;
+    opacity 0.8s ease,
+    visibility 0s 0.85s;
 }
 
 .slide.is-active {
   opacity: 1;
   visibility: visible;
-  transform: none;
-  transition:
-    opacity 0.5s ease 0.08s,
-    transform 0.7s cubic-bezier(0.19, 0.79, 0.28, 1) 0.08s;
+  transition: opacity 0.8s ease;
 }
 
 .slide > * {
@@ -90,19 +85,19 @@
   to { transform: translate(-2.5%, 2%) scale(1.045); }
 }
 
-/* staggered content entrance */
+/* staggered content entrance — smooth pure fade */
 .slide [data-anim] {
   opacity: 0;
 }
 
 .slide.is-active [data-anim] {
-  animation: rise 0.7s cubic-bezier(0.21, 0.68, 0.32, 1) both;
-  animation-delay: calc(var(--d, 0) * 90ms + 140ms);
+  animation: fade 0.9s ease both;
+  animation-delay: calc(var(--d, 0) * 120ms + 100ms);
 }
 
-@keyframes rise {
-  from { opacity: 0; transform: translateY(16px); }
-  to { opacity: 1; transform: none; }
+@keyframes fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 /* ---------------- shared type ---------------- */

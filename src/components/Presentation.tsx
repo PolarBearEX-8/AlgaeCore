@@ -135,7 +135,9 @@ export default function Presentation({ slides }: { slides: SlideDef[] }) {
             tone={slide.tone}
             outline={
               <SlideOutline
-                current={index}
+                /* Per-slide topic: each slide highlights its own pill,
+                   so printed pages show the correct header. */
+                current={i}
                 visited={visited}
                 labels={slides.map((s) => s.label)}
               />

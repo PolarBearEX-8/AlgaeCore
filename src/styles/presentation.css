@@ -784,6 +784,13 @@
   color: var(--c-ink);
 }
 
+.s6__class {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--c-forest);
+  letter-spacing: 0.02em;
+}
+
 .s6__role {
   margin-top: 5px;
   font-size: 11px;

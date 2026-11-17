@@ -60,6 +60,18 @@
     animation: none !important;
   }
 
+  /* In print, each page highlights its own topic; session "visited" state
+     must not grey out pills — render unvisited pills fully lit as well. */
+  .slide-outline__item.is-unseen {
+    color: rgba(244, 242, 234, 0.92);
+    border-color: rgba(244, 242, 234, 0.24);
+  }
+
+  .slide--light .slide-outline__item.is-unseen {
+    color: rgba(20, 26, 22, 0.9);
+    border-color: rgba(20, 26, 22, 0.22);
+  }
+
   /* Interactive presentation controls are removed from print output. */
   .no-print {
     display: none !important;

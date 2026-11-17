@@ -39,7 +39,9 @@ export default function Slide06() {
               {member.number}
             </span>
             <div className="s6__info">
-              <h3 className="s6__name">{member.name}</h3>
+              <h3 className="s6__name">
+                {member.name} <span className="s6__class">M.5/12</span>
+              </h3>
             </div>
           </article>
         ))}
